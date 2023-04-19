@@ -26,7 +26,7 @@ namespace OficinaMeurer.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex);
             }
         }
 
@@ -45,7 +45,7 @@ namespace OficinaMeurer.API.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex);
             }
         }
 
@@ -54,17 +54,13 @@ namespace OficinaMeurer.API.Controllers
         {
             try
             {
-                if (!ModelState.IsValid)
-                    return BadRequest(ModelState.ValidationState);
-
                 await _clienteApp.Salvar(cliente);
 
                 return Ok();
-
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return BadRequest(ex);
             }
         }
 

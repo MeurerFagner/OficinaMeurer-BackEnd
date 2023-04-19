@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using OficinaMeurer.Infra;
@@ -11,9 +12,11 @@ using OficinaMeurer.Infra;
 namespace OficinaMeurer.Infra.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230418150538_Adicionado_Tabelas_Para_OrdemDeServico")]
+    partial class Adicionado_Tabelas_Para_OrdemDeServico
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,6 +56,7 @@ namespace OficinaMeurer.Infra.Migrations
                         .HasColumnType("text");
 
                     b.Property<string>("Observacoes")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Placa")
@@ -115,6 +119,7 @@ namespace OficinaMeurer.Infra.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Descricao")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Nome")

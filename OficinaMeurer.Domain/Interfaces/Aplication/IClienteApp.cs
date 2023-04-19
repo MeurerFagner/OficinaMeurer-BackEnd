@@ -5,8 +5,8 @@ namespace OficinaMeurer.Domain.Interfaces.Aplication
 {
     public interface IClienteApp
     {
-        Task<IEnumerable<Cliente>> GetAll();
-        Task<Cliente> Get(long id);
+        Task<IEnumerable<ClienteViewModel>> GetAll();
+        Task<ClienteViewModel> Get(long id);
         Task Salvar(ClienteViewModel cliente);
     }
 

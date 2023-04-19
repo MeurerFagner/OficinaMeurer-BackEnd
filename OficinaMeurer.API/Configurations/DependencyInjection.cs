@@ -12,8 +12,10 @@ namespace OficinaMeurer.API.Configurations
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
+            services.AddScoped<IOrdemDeServicoRepositorio, OrdemDeServicoRepositorio>();
         
             services.AddScoped<IClienteApp, ClienteApp>();
+            services.AddScoped<IOrdemDeServicoApp, OrdemDeServicoApp>();
 
             services.AddAutoMapper(m => m.AddProfile(new MapperProfile()));
         }

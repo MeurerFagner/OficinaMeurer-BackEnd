@@ -6,7 +6,7 @@ using OficinaMeurer.Domain.ViewModel;
 
 namespace OficinaMeurer.APP.Services
 {
-    public class ClienteApp: IClienteApp
+    public class ClienteApp : IClienteApp
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
@@ -17,14 +17,20 @@ namespace OficinaMeurer.APP.Services
             _mapper = mapper;
         }
 
-        public async Task<Cliente> Get(long id)
+        public async Task<ClienteViewModel> Get(long id)
         {
-            return await _unitOfWork.Clientes.Get(id);
+            var cliente = await _unitOfWork.Clientes.Get(id);
+            var clienteOutput = _mapper.Map<ClienteViewModel>(cliente);
+
+            return clienteOutput;
         }
 
-        public Task<IEnumerable<Cliente>> GetAll()
+        public async Task<IEnumerable<ClienteViewModel>> GetAll()
         {
-            return _unitOfWork.Clientes.GetAll();
+            var clientes = await _unitOfWork.Clientes.GetAll();
+            var clientesOutput = _mapper.Map<IEnumerable<ClienteViewModel>>(clientes);
+
+            return clientesOutput;
         }
 
         public async Task Salvar(ClienteViewModel clienteInput)

@@ -20,7 +20,7 @@ namespace OficinaMeurer.Infra.Repositorios
 
         public async Task Insert(TEntity entity)
         {
-            entity.DataCadastro = DateTime.Now;
+            entity.DataCadastro = DateTimeOffset.Now.DateTime;
             await Task.FromResult(_context.Set<TEntity>().Add(entity));
         }
 
@@ -29,12 +29,12 @@ namespace OficinaMeurer.Infra.Repositorios
             await Task.FromResult(_context.Set<TEntity>().Update(entity));
         }
 
-        public async Task<TEntity> Get(long id)
+        public virtual async Task<TEntity> Get(long id)
         {
             return await _context.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id);
         }
 
-        public async Task<IEnumerable<TEntity>> GetAll()
+        public virtual async Task<IEnumerable<TEntity>> GetAll()
         {
             return await _context.Set<TEntity>().ToListAsync();
         }

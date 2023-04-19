@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace OficinaMeurer.Infra.MapEntidades
 {
-    public class ClienteMap : IEntityTypeConfiguration<Cliente>
+    public class ClienteMap : EntityMapBase<Cliente>
     {
-        public void Configure(EntityTypeBuilder<Cliente> builder)
+        public override void Configure(EntityTypeBuilder<Cliente> builder)
         {
-            builder.ToTable("CLIENTE");
-            builder.HasKey(k => k.Id);
-            builder.Property(p => p.Id).ValueGeneratedOnAdd();
+            base.Configure(builder);
 
+            builder.ToTable("CLIENTE");
+            
         }
     }
 }

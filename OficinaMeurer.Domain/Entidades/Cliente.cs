@@ -14,6 +14,8 @@ namespace OficinaMeurer.Domain.Entidades
         public string Cor { get; set; }
         public string Placa { get; set; }
         public int Ano { get; set; }
-        public string Observacoes { get; set; }
+        public string? Observacoes { get; set; }
+
+        public virtual ICollection<OrdemDeServico> OrdemDeServicos { get; set; }
     }
 }

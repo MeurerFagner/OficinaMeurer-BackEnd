@@ -24,7 +24,8 @@ namespace OficinaMeurer.Domain.ViewModel
         [Required]
         [Range(1900,9999,ErrorMessage = "Ano inválido")]
         public int Ano { get; set; }
-        public string Observacoes { get; set; }
+
+        public string? Observacoes { get; set; }
 
     }
 }

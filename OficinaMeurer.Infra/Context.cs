@@ -15,6 +15,7 @@ namespace OficinaMeurer.Infra
            : base(options) { }
 
         public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<OrdemDeServico> OrdemsDeServicos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
